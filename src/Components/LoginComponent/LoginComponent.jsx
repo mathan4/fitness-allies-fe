@@ -33,7 +33,7 @@ const LoginComponent = () => {
     setError(null);
 
     try {
-      const response = await axios.post(`${url}/api/v1/fitnessAllies/login`, {
+      const response = await axios.post(`${url}/api/v1/fitnessAllies/user/login`, {
         email,
         password,
       });

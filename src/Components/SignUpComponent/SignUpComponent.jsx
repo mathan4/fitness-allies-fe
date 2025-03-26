@@ -21,7 +21,7 @@ const SignUpComponent = () => {
   const handleSignupSubmit = async(e) => {
     e.preventDefault();
     try {
-      await axios.post(`${url}/api/v1/fitnessAllies/signup`, {
+      await axios.post(`${url}/api/v1/fitnessAllies/user/signup`, {
         email,
         password,
         name,
