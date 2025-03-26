@@ -105,7 +105,7 @@ const WorkoutPlanComponent = () => {
       };
       
       const response = await axios.post(
-        `${url}/workout/generate-plan`,
+        `${url}/api/v1/fitnessAllies/workout/generate-plan`,
         dataToSend,
         {
           headers: {
@@ -139,7 +139,7 @@ const WorkoutPlanComponent = () => {
       };
       
       const response = await axios.post(
-        `${url}/workout/generate-plan`,
+        `${url}/api/v1/fitnessAllies/workout/generate-plan`,
         dataToSend,
         {
           headers: {
@@ -177,7 +177,7 @@ const WorkoutPlanComponent = () => {
     try {
       // Make sure we send all the required data
       const response = await axios.post(
-        `${url}/workout/save-plan`,
+        `${url}/api/v1/fitnessAllies/workout/save-plan`,
         {
           planName: formData.planName,
           fitnessGoal: formData.fitnessGoal,  // Include these fields

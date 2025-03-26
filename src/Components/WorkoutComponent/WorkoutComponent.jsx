@@ -31,7 +31,7 @@ const WorkoutComponent = () => {
         return;
       }
 
-      const response = await axios.get(`${url}/workout/${planId}/${dayIndex}`, {
+      const response = await axios.get(`${url}/api/v1/fitnessAllies/workout/${planId}/${dayIndex}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -65,7 +65,7 @@ const WorkoutComponent = () => {
         return false;
       }
 
-      await axios.post(`${url}/workout/mark-complete/`, {
+      await axios.post(`${url}/api/v1/fitnessAllies/workout/mark-complete/`, {
         planId,
         dayIndex,
         exerciseIndex
@@ -96,7 +96,7 @@ const WorkoutComponent = () => {
         return false;
       }
 
-      await axios.post(`${url}/workout/mark-incomplete`, {
+      await axios.post(`${url}/api/v1/fitnessAllies/workout/mark-incomplete`, {
         planId,
         dayIndex,
         exerciseIndex
@@ -151,7 +151,7 @@ const WorkoutComponent = () => {
   const handleFinishWorkout = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.patch(`${url}/workout/${planId}/complete-day/${dayIndex}`, {},{
+      await axios.patch(`${url}/api/v1/fitnessAllies/workout/${planId}/complete-day/${dayIndex}`, {},{
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -177,7 +177,7 @@ const WorkoutComponent = () => {
       if (!token) return;
       console.log(token)
 
-      await axios.get(`${url}/workout/check-missed`, {}, {
+      await axios.get(`${url}/api/v1/fitnessAllies/workout/check-missed`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

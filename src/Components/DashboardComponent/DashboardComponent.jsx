@@ -29,7 +29,7 @@ const DashboardComponent = () => {
         return;
       }
 
-      const response = await axios.get(`${url}/workout/`, {
+      const response = await axios.get(`${url}/api/v1/fitnessAllies/workout/`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -59,7 +59,7 @@ const DashboardComponent = () => {
   const handleDeletePlan = async (planId) => {
     if (window.confirm('Are you sure you want to delete this workout plan?')) {
       try {
-        await axios.delete(`${url}/workout/${planId}`, {
+        await axios.delete(`${url}/api/v1/fitnessAllies/workout/${planId}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }

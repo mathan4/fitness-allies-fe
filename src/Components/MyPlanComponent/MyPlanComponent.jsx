@@ -11,7 +11,7 @@ const MyPlanComponent = () => {
     const fetchWorkoutPlans = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`${url}/workout/user`, {
+        const response = await axios.get(`${url}/api/v1/fitnessAllies/workout/user`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

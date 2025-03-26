@@ -27,7 +27,7 @@ export const ExerciseCompletionProvider = ({ children }) => {
 
       // Make API call to update completion status on the server
       const response = await axios.post(
-        `${url}/workout/mark-complete`,
+        `${url}/api/v1/fitnessAllies/workout/mark-complete`,
         { planId, dayIndex }, // Make sure you're sending these as part of the request body
         {
           headers: {
