@@ -1,5 +1,12 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import Dashboard from "./Components/DashboardComponent/DashboardComponent";
 import WorkoutPlanComponent from "./Components/WorkoutPlanComponent/WorkoutPlanComponent";
 import Login from "./Components/LoginComponent/LoginComponent";
@@ -12,6 +19,7 @@ import {
 } from "./Components/Authentication/AuthContext"; // Import AuthProvider and AuthContext
 import WorkoutComponent from "./Components/WorkoutComponent/WorkoutComponent";
 import MyPlanComponent from "./Components/MyPlanComponent/MyPlanComponent";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   return (
@@ -51,27 +59,23 @@ const App = () => {
               path="/user"
               element={
                 <ProtectedRoute>
-                  <MyPlanComponent/>
+                  <MyPlanComponent />
                 </ProtectedRoute>
               }
             />
 
-
-            <Route path="/" element={<ProtectedRedirect />} />
+            <Route path="/" element={<IndexRoute />} />
           </Routes>
         </div>
+        <Analytics />
       </BrowserRouter>
     </AuthProvider>
   );
 };
 
-const ProtectedRedirect = async () => {
+const IndexRoute = () => {
   const { isAuthenticated } = React.useContext(AuthContext);
-  return isAuthenticated ? (
-    <Navigate to="/dashboard" />
-  ) : (
-    <Navigate to="/login" />
-  );
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />;
 };
 
 const Nav = () => {
