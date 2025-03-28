@@ -9,8 +9,6 @@ import {
 } from "react-router-dom";
 import Dashboard from "./Components/DashboardComponent/DashboardComponent";
 import WorkoutPlanComponent from "./Components/WorkoutPlanComponent/WorkoutPlanComponent";
-import Login from "./Components/LoginComponent/LoginComponent";
-import Signup from "./Components/SignUpComponent/SignUpComponent";
 import logo from "./assets/logo.jpg";
 import ProtectedRoute from "./Components/Authentication/ProtectedRoute";
 import {
@@ -20,6 +18,8 @@ import {
 import WorkoutComponent from "./Components/WorkoutComponent/WorkoutComponent";
 import MyPlanComponent from "./Components/MyPlanComponent/MyPlanComponent";
 import { Analytics } from "@vercel/analytics/react";
+import SignUpComponent from "./Components/SignUpComponent/SignUpComponent";
+import LoginComponent from "./Components/LoginComponent/LoginComponent";
 
 const App = () => {
   return (
@@ -28,8 +28,8 @@ const App = () => {
         <div className="min-h-screen">
           <Nav />
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<LoginComponent/>} />
+            <Route path="/signup" element={<SignUpComponent/>} />
 
             <Route
               path="/dashboard"

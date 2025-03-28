@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "../FormComponent/FormComponent";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUpComponent = () => {
   const [email, setEmail] = useState("");
